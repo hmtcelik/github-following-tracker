@@ -11,7 +11,7 @@ export type FollowerResponseData = {
 
 const App = () => {
   const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(prefersDark);
 
   const [username, setUsername] = useState("");
   const [errorMsq, setErrorMsg] = useState("");
