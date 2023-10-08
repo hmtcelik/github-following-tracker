@@ -54,7 +54,7 @@ const App = () => {
           setErrorMsg("User not found");
           return;
         } else {
-          setErrorMsg("Something went wrong");
+          setErrorMsg("The quota exceeded, Please try again later");
         }
         setFollowers([]);
       });
