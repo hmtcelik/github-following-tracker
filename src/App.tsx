@@ -40,7 +40,7 @@ const App = () => {
 
     axios
       .get(
-        `https://api.github.com/users/${username}/following?per_page=5&page=${page}`
+        `https://api.github.com/users/${username}/following?per_page=10&page=${page}`
       )
       .then((res) => {
         if (res.data.length <= 0) {
@@ -62,7 +62,7 @@ const App = () => {
 
   const checkIfFollow = async (user: string) => {
     const res = await axios.get(
-      `https://api.github.com/users/${username}/following/${user}`
+      `https://api.github.com/users/${user}/following/${username}`
     );
     if (res.status === 204) {
       return true;
@@ -297,17 +297,25 @@ const App = () => {
 
                                       <td className="h-px w-px whitespace-nowrap">
                                         <div className="px-6 py-3">
-                                          <span className="inline-flex items-center gap-1.5 py-0.5 px-2 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200">
-                                            <svg
-                                              className="w-2.5 h-2.5"
-                                              xmlns="http://www.w3.org/2000/svg"
-                                              width={16}
-                                              height={16}
-                                              fill="currentColor"
-                                              viewBox="0 0 16 16"
-                                            >
-                                              <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
-                                            </svg>
+                                          <span
+                                            className={`inline-flex items-center gap-1.5 py-0.5 px-2 rounded-full text-xs font-medium ${
+                                              isFollowing
+                                                ? "bg-green-100"
+                                                : "bg-red-100"
+                                            } ${
+                                              isFollowing
+                                                ? "text-green-800"
+                                                : "text-yellow-800"
+                                            } ${
+                                              isFollowing
+                                                ? "dark:bg-green-900"
+                                                : "dark:bg-yellow-900"
+                                            } ${
+                                              isFollowing
+                                                ? "dark:text-green-200"
+                                                : "dark:text-yellow-200"
+                                            }`}
+                                          >
                                             {isFollowing
                                               ? "Following"
                                               : "Not Following"}
