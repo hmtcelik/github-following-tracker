@@ -103,7 +103,8 @@ const App = () => {
           <div className="flex flex-row gap-y-4 gap-x-0 sm:flex-row items-center sm:justify-end sm:gap-y-0 sm:gap-x-7 sm:mt-0 sm:pl-7">
             <a
               className="font-medium text-black px-0 sm:py-6 sm:px-0 dark:text-white"
-              href="#"
+              href="https://github.com/hmtcelik/github-following-tracker"
+              target="_blank"
               aria-current="page"
             >
               <IconBrandGithub />
